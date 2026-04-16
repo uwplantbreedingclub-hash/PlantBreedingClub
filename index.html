@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UW Plant Breeding Club</title>
+  <meta name="description" content="The Plant Breeding Club at the University of Wisconsin–Madison. Growing the next generation of plant scientists." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="leaf">🌱</span> Plant Breeding Club
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="resources.html">Resources</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- Decorative SVG seed shape -->
+    <svg class="hero-blob" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="200" cy="200" rx="160" ry="100" fill="none" stroke="#9fd43a" stroke-width="1.5" />
+      <ellipse cx="200" cy="200" rx="120" ry="70" fill="none" stroke="#9fd43a" stroke-width="1" />
+      <line x1="40" y1="200" x2="360" y2="200" stroke="#9fd43a" stroke-width="0.75" />
+      <line x1="200" y1="100" x2="200" y2="300" stroke="#9fd43a" stroke-width="0.75" />
+      <circle cx="200" cy="200" r="6" fill="#9fd43a" />
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-tag">// University of Wisconsin–Madison</p>
+      <h1>We grow<br /><em>plant breeders.</em></h1>
+      <p class="hero-sub">
+        A community for students passionate about plant genetics, crop improvement,
+        and the science of feeding the world.
+      </p>
+      <div class="hero-btns">
+        <a href="events.html" class="btn btn-lime">Upcoming Events</a>
+        <a href="about.html" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INTRO STRIP ===================== -->
+  <section style="background: var(--cream-dk); padding: 3rem 2.5rem;">
+    <div class="section-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+      <div>
+        <p class="tag">// What we do</p>
+        <p style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--dark); max-width: 480px; line-height: 1.3;">
+          Seminars, field trips, networking, and a lot of talk about seeds.
+        </p>
+      </div>
+      <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--green);">
+            <!--UPDATE: number of members -->
+            30+
+          </div>
+          <div style="font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono);">members</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--green);">
+            <!--UPDATE: events per year -->
+            10+
+          </div>
+          <div style="font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono);">events/year</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--green);">
+            <!--UPDATE: number of departments or programs represented -->
+            5+
+          </div>
+          <div style="font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono);">departments</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UPCOMING EVENTS ===================== -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <p class="tag">// What's coming up</p>
+          <h2 class="section-title">Upcoming Events</h2>
+        </div>
+        <a href="events.html" class="btn btn-green">See all events →</a>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- EVENT CARD 1 — UPDATE as needed -->
+        <div class="card">
+          <span class="card-badge">Seminar</span>
+          <h3>Spring Kickoff Meeting</h3>
+          <p>Come meet the club, hear about what we have planned for the semester, and grab some free pizza.</p>
+          <div class="card-meta">
+            <span>📅 April 25, 2026</span>
+            <span class="dot">·</span>
+            <span>📍 Russell Labs</span>
+          </div>
+        </div>
+
+        <!-- EVENT CARD 2 — UPDATE as needed -->
+        <div class="card">
+          <span class="card-badge">Tour</span>
+          <h3>Seed Lab Tour</h3>
+          <p>Behind-the-scenes look at high-throughput seed phenotyping and the UW seed library collection.</p>
+          <div class="card-meta">
+            <span>📅 May 9, 2026</span>
+            <span class="dot">·</span>
+            <span>📍 Moore Hall</span>
+          </div>
+        </div>
+
+        <!-- EVENT CARD 3 — UPDATE as needed -->
+        <div class="card">
+          <span class="card-badge">Social</span>
+          <h3>End-of-Semester Cookout</h3>
+          <p>Celebrate making it through another semester with food, friends, and garden variety plant nerd conversation.</p>
+          <div class="card-meta">
+            <span>📅 May 2, 2026</span>
+            <span class="dot">·</span>
+            <span>📍 Allen Centennial Garden</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band">
+    <div class="section-inner">
+      <p class="tag" style="color: var(--lime);">// Get involved</p>
+      <h2 class="section-title">Ready to join?</h2>
+      <p>
+        We welcome students from all backgrounds — whether you're deep in your dissertation
+        or just curious about where your food comes from.
+      </p>
+      <!--UPDATE: replace # with your actual signup link -->
+      <a href="#" class="btn btn-lime">Join the Club →</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌱 UW Plant Breeding Club</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <!--UPDATE: year and contact email -->
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@wisc.edu">uwplantbreedingclub@wisc.edu</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

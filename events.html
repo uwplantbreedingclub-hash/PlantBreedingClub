@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — UW Plant Breeding Club</title>
+  <meta name="description" content="Upcoming events from the UW Plant Breeding Club." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="leaf">🌱</span> Plant Breeding Club
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="resources.html">Resources</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== PAGE HEADER ===================== -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="tag">// Mark your calendar</p>
+      <h1>Events</h1>
+      <p>Seminars, field trips, socials, and everything in between. Come hang out with us.</p>
+    </div>
+  </div>
+
+  <!-- ===================== UPCOMING EVENTS ===================== -->
+  <section>
+    <div class="section-inner">
+      <p class="tag">// Coming up</p>
+      <h2 class="section-title" style="margin-bottom: 2rem;">Upcoming Events</h2>
+
+      <div class="events-list">
+
+        <!--
+          HOW TO UPDATE EVENTS:
+          - Change the month/day in .event-date-box
+          - Update the title, description, time and location
+          - Change the badge type (Seminar / Tour / Social / Workshop / etc.)
+          - Add or remove .event-card blocks as needed
+        -->
+
+        <!-- EVENT 1 -->
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-month">Apr</div>
+            <div class="event-day">25</div>
+          </div>
+          <div class="event-info">
+            <span class="event-type-badge">Seminar</span>
+            <h3>Spring Kickoff Meeting</h3>
+            <p>Come meet the club, hear what we have planned for the semester, and grab some free pizza. Great for new members!</p>
+            <div class="event-meta">
+              <span>🕕 6:00 PM</span>
+              <span>📍 Russell Labs 146</span>
+            </div>
+          </div>
+          <!--UPDATE: link to RSVP or calendar event -->
+          <a href="#" class="btn btn-green" style="white-space: nowrap;">RSVP →</a>
+        </div>
+
+        <!-- EVENT 2 -->
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-month">May</div>
+            <div class="event-day">2</div>
+          </div>
+          <div class="event-info">
+            <span class="event-type-badge">Social</span>
+            <h3>End-of-Semester Cookout</h3>
+            <p>Celebrate making it through the semester with food and good company. Bring a dish if you want, bring yourself if you don't.</p>
+            <div class="event-meta">
+              <span>🕑 2:00 PM</span>
+              <span>📍 Allen Centennial Garden</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-green" style="white-space: nowrap;">RSVP →</a>
+        </div>
+
+        <!-- EVENT 3 -->
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-month">May</div>
+            <div class="event-day">9</div>
+          </div>
+          <div class="event-info">
+            <span class="event-type-badge">Tour</span>
+            <h3>Seed Phenotyping Lab Tour</h3>
+            <p>A behind-the-scenes look at the high-throughput seed phenotyping pipeline — imaging systems, data workflows, and more.</p>
+            <div class="event-meta">
+              <span>🕐 1:00 PM</span>
+              <span>📍 Moore Hall</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-green" style="white-space: nowrap;">RSVP →</a>
+        </div>
+
+        <!-- EVENT 4 -->
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-month">May</div>
+            <div class="event-day">16</div>
+          </div>
+          <div class="event-info">
+            <span class="event-type-badge">Workshop</span>
+            <h3>Intro to Mixed Models in R</h3>
+            <p>A hands-on workshop covering lme4 basics for plant breeders — BLUPs, heritability estimates, and how to not mess up your variance components.</p>
+            <div class="event-meta">
+              <span>🕔 4:00 PM</span>
+              <span>📍 Computer Lab, Plant Sciences Building</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-green" style="white-space: nowrap;">RSVP →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ===================== PAST EVENTS ===================== -->
+  <section style="background: var(--cream-dk);">
+    <div class="section-inner">
+      <p class="tag">// What we've been up to</p>
+      <h2 class="section-title">Past Events</h2>
+      <p class="section-intro">A look back at what we've done. More to come!</p>
+
+      <div class="card-grid">
+
+        <!--UPDATE: fill in with actual past events -->
+        <div class="card">
+          <span class="card-badge">Journal Club</span>
+          <h3>Ethics in Plant Breeding</h3>
+          <p>Discussion on biopiracy, trait selection ethics, and what responsible breeding looks like in 2026.</p>
+          <div class="card-meta"><span>March 2026</span></div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Guest Speaker</span>
+          <h3>From PhD to Industry: A Breeder's Path</h3>
+          <p>Alumni panel on careers in seed companies, biotech firms, and beyond academia.</p>
+          <div class="card-meta"><span>February 2026</span></div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Social</span>
+          <h3>Fall Welcome Mixer</h3>
+          <p>Kicked off the year with introductions, snacks, and plenty of seed-related small talk.</p>
+          <div class="card-meta"><span>September 2025</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STAY IN THE LOOP ===================== -->
+  <section class="cta-band">
+    <div class="section-inner">
+      <p class="tag" style="color: var(--lime);">// Never miss an event</p>
+      <h2 class="section-title">Stay in the loop</h2>
+      <p>Join our mailing list and we'll let you know when new events are posted.</p>
+      <!--UPDATE: replace # with your mailing list or signup link -->
+      <a href="#" class="btn btn-lime">Subscribe to Updates →</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌱 UW Plant Breeding Club</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@wisc.edu">uwplantbreedingclub@wisc.edu</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
