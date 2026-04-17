@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join — UW Plant Breeding Club</title>
+  <meta name="description" content="Interested in joining the UW Plant Breeding Club? Fill out our interest form!" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .form-wrapper {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .form-wrapper iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    .join-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .join-info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .join-info-card .icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .join-info-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--dark);
+    }
+    .join-info-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="leaf">🌱</span> Plant Breeding Club
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== PAGE HEADER ===================== -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="tag">// Come grow with us</p>
+      <h1>Join the Club</h1>
+      <p>No dues, no barriers — just fill out the form below and we'll be in touch.</p>
+    </div>
+  </div>
+
+  <!-- ===================== QUICK INFO ===================== -->
+  <section>
+    <div class="section-inner">
+
+      <div class="join-info-grid">
+        <div class="join-info-card">
+          <div class="icon">💸</div>
+          <h4>Free to Join</h4>
+          <p>No membership dues — ever. The Plant Breeding Club is fully funded through grants and fundraising.</p>
+        </div>
+        <div class="join-info-card">
+          <div class="icon">🎓</div>
+          <h4>Who Can Join</h4>
+          <p>PBPG graduate students, postdocs, faculty, staff, alumni, and anyone with a genuine interest in plant breeding.</p>
+        </div>
+        <div class="join-info-card">
+          <div class="icon">✅</div>
+          <h4>Active Membership</h4>
+          <p>Attend 3+ meetings per semester and participate in at least one club activity to become a voting active member.</p>
+        </div>
+        <div class="join-info-card">
+          <div class="icon">📬</div>
+          <h4>Stay in the Loop</h4>
+          <p>Fill out the form and we'll add you to our mailing list so you never miss an event or announcement.</p>
+        </div>
+      </div>
+
+      <!-- ===================== INTEREST FORM ===================== -->
+      <p class="tag">// Express your interest</p>
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">Interest Form</h2>
+
+      <div class="form-wrapper">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdCb9E11iR_gdVNR7tdwJsew9FG7oCWdolzqrprchM2JeasPg/viewform?embedded=true"
+          height="2124"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="PBC Interest Form">
+          Loading…
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌱 UW Plant Breeding Club</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="join.html">Join</a></li>
+        <!--UPDATE: replace with your actual Instagram URL -->
+        <li><a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@gmail.com">uwplantbreedingclub@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

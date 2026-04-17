@@ -7,36 +7,11 @@
   <meta name="description" content="Photos from UW Plant Breeding Club events, field trips, and lab life." />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ---- Gallery-specific styles ---- */
-    .google-photos-cta {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .google-photos-cta .big-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .google-photos-cta h3 {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .google-photos-cta p {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 420px;
-      margin: 0 auto 1.75rem;
-    }
-
-    /* ---- Photo grid ---- */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1rem;
     }
-
     .photo-item {
       border-radius: var(--radius);
       overflow: hidden;
@@ -57,30 +32,10 @@
       object-fit: cover;
       display: block;
     }
-
-    /* Placeholder for when no image is set */
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      text-align: center;
-      padding: 1rem;
-    }
-    .photo-placeholder .ph-icon { font-size: 2rem; opacity: 0.4; }
-
     .photo-caption {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
       color: white;
       padding: 1.5rem 1rem 0.75rem;
       font-size: 0.85rem;
@@ -89,7 +44,6 @@
     }
     .photo-item:hover .photo-caption { opacity: 1; }
 
-    /* ---- Instagram CTA ---- */
     .instagram-strip {
       background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
       border-radius: var(--radius);
@@ -141,6 +95,7 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="resources.html">Resources</a></li>
+      <li><a href="join.html">Join</a></li>
     </ul>
   </nav>
 
@@ -149,115 +104,46 @@
     <div class="page-header-inner">
       <p class="tag">// Life in the lab & field</p>
       <h1>Gallery</h1>
-      <p>Event photos, field trips, seed close-ups, and everything in between.</p>
+      <p>Photos from events, skill-shares, farm tours, and lab life.</p>
     </div>
   </div>
 
-  <!-- ===================== MAIN CONTENT ===================== -->
+  <!-- ===================== GALLERY ===================== -->
   <section>
     <div class="section-inner">
 
-      <!-- Google Photos link -->
-      <div class="google-photos-cta">
-        <div class="big-icon">📸</div>
-        <h3>Full Photo Album</h3>
-        <p>Our complete collection of event and lab photos lives on Google Photos — browse the whole archive there.</p>
-        <!--UPDATE: replace # with your shared Google Photos album link -->
-        <a href="#" target="_blank" rel="noopener" class="btn btn-green">Open Google Photos Album →</a>
-      </div>
+      <p class="tag">// Our photos</p>
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Photos</h2>
+      <p class="section-intro">Scroll through what we've been up to.</p>
 
-      <!-- Featured photos grid -->
-      <div>
-        <p class="tag">// Highlights</p>
-        <h2 class="section-title" style="margin-bottom: 0.5rem;">Featured Photos</h2>
-        <p class="section-intro">
-          A few favorites from recent events.
-          <!--UPDATE: to add a photo, save the image file to a /photos/ folder in your repo,
-              then replace the placeholder divs below with:
-              <img src="photos/your-photo.jpg" alt="Description of photo"> -->
+      <!-- Grid populated automatically from photos.js -->
+      <div class="photo-grid" id="photo-grid"></div>
+
+      <!-- Shows when photos.js is empty -->
+      <div id="photo-empty" style="display:none; text-align:center; padding:4rem 2rem; background:white; border:1px solid var(--border); border-radius:var(--radius);">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">📷</div>
+        <p style="color:var(--muted); font-family:var(--font-mono); font-size:0.85rem;">
+          Photos coming soon — check back after our first events!
         </p>
-
-        <div class="photo-grid">
-
-          <!--
-            HOW TO ADD REAL PHOTOS:
-            1. Create a folder called "photos" in your GitHub repo
-            2. Upload your images there
-            3. Replace each .photo-placeholder div with:
-               <img src="photos/filename.jpg" alt="Short description">
-            4. The caption shows on hover — update the .photo-caption text too
-          -->
-
-          <!-- PHOTO SLOT 1 -->
-          <div class="photo-item">
-            <!--UPDATE: replace below div with <img src="photos/your-photo.jpg" alt="..."> -->
-            <div class="photo-placeholder">
-              <span class="ph-icon">🌾</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption"><!--UPDATE: caption text --> Event or location name</div>
-          </div>
-
-          <!-- PHOTO SLOT 2 -->
-          <div class="photo-item">
-            <div class="photo-placeholder">
-              <span class="ph-icon">🔬</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption">Event or location name</div>
-          </div>
-
-          <!-- PHOTO SLOT 3 -->
-          <div class="photo-item">
-            <div class="photo-placeholder">
-              <span class="ph-icon">🌱</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption">Event or location name</div>
-          </div>
-
-          <!-- PHOTO SLOT 4 -->
-          <div class="photo-item">
-            <div class="photo-placeholder">
-              <span class="ph-icon">🌽</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption">Event or location name</div>
-          </div>
-
-          <!-- PHOTO SLOT 5 -->
-          <div class="photo-item">
-            <div class="photo-placeholder">
-              <span class="ph-icon">🧬</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption">Event or location name</div>
-          </div>
-
-          <!-- PHOTO SLOT 6 -->
-          <div class="photo-item">
-            <div class="photo-placeholder">
-              <span class="ph-icon">📷</span>
-              <span>Add photo here<br/>photos/filename.jpg</span>
-            </div>
-            <div class="photo-caption">Event or location name</div>
-          </div>
-
-          <!-- Add more slots by copying a .photo-item block above -->
-
-        </div>
-
-        <!-- Instagram CTA -->
-        <div class="instagram-strip">
-          <h3>Follow us on Instagram</h3>
-          <p>More photos, event updates, and plant content on our Instagram.</p>
-          <!--UPDATE: replace with your actual Instagram handle/URL -->
-          <a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener" class="btn-instagram">
-            <span>📷</span> @uwplantbreedingclub
-          </a>
-        </div>
-
       </div>
+
+      <!-- How to add photos tip -->
+      <div style="margin-top:1.5rem; background:rgba(43,83,40,0.06); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem 1.5rem;">
+        <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); margin:0;">
+          📁 <strong>To add photos:</strong> Upload image files to the <code>photos/</code> folder in GitHub, then add an entry to <code>photos.js</code>. The gallery updates automatically.
+        </p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="instagram-strip">
+        <h3>Follow us on Instagram</h3>
+        <p>More photos, event updates, and plant content on our Instagram.</p>
+        <!--UPDATE: replace with your actual Instagram handle/URL -->
+        <a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener" class="btn-instagram">
+          <span>📷</span> @uwplantbreedingclub
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -271,13 +157,16 @@
         <li><a href="events.html">Events</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="resources.html">Resources</a></li>
+        <li><a href="join.html">Join</a></li>
         <!--UPDATE: replace with your actual Instagram URL -->
         <li><a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
-      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@wisc.edu">uwplantbreedingclub@wisc.edu</a></p>
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@gmail.com">uwplantbreedingclub@gmail.com</a></p>
     </div>
   </footer>
 
+  <!-- Load photo list first, then build the grid -->
+  <script src="photos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
