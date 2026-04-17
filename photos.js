@@ -17,24 +17,18 @@
 */
 
 const PHOTOS = [
-
-  // ---- August 2025 ----
   {
     src: "photos/20250808_160615.jpg",
     caption: "PBC Student, Andream with a high anthocyanin sweet corn ear at the Sweet Corn Skill Share, August 2025" // UPDATE: describe what this photo is
   },
-
-  // ---- November 2025 ----
   {
     src: "photos/20251116_115135.jpg",
-    caption: "PBC Students "put the plot to bed", November 2025" // UPDATE: describe what this photo is
+    caption: "PBC Students 'put the plot to bed', November 2025" // UPDATE: describe what this photo is
   },
   {
     src: "photos/20251116_123613.jpg",
     caption: "The 2026 Growing plot, Eagle Heights Garden" // UPDATE: describe what this photo is
   },
-
-  // ---- December 2025 ----
   {
     src: "photos/20251201_163435.jpg",
     caption: "PBC Students look over beet phenotypes at out Beet Selection Skill Share, December 2025" // UPDATE: describe what this photo is
@@ -85,7 +79,7 @@ const PHOTOS = [
   },
    {
     src: "photos/signal-2026-04-16-224502_012.jpeg",
-    caption: "PBC Students "putting the plot to bed" in November 2025" // UPDATE: describe what this photo is
+    caption: "PBC Students 'putting the plot to bed' in November 2025" // UPDATE: describe what this photo is
   },
    {
     src: "photos/signal-2026-04-16-224502_014.jpeg",
