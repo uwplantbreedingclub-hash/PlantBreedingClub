@@ -9,28 +9,58 @@
   3. Fill in the filename and a short caption
   4. Save and commit — the gallery updates automatically!
 
-  Example entry:
-  {
-    src: "photos/spring-kickoff-2026.jpg",
-    caption: "Spring Kickoff Meeting, April 2026"
-  },
-
   TIPS:
   - Keep image files under 2MB for fast loading
-  - JPG works great for photos; PNG for screenshots
+  - JPG/JPEG works great for photos
   - Captions are optional — just leave caption: "" if you don't want one
   ============================================================
 */
 
 const PHOTOS = [
 
-  // ---- Add your photos below this line ----
-  // { src: "photos/your-photo.jpg", caption: "Your caption here" },
+  // ---- August 2025 ----
+  {
+    src: "photos/20250808_160615.jpg",
+    caption: "August 2025" // UPDATE: describe what this photo is
+  },
 
-  // ---- Example (delete when you add real photos) ----
-  // { src: "photos/spring-meetup.jpg", caption: "Spring Meetup 2026" },
-  // { src: "photos/seed-lab-tour.jpg", caption: "Seed Lab Tour, May 2026" },
-  // { src: "photos/farm-visit.jpg",    caption: "Farm Visit, Fall 2025" },
+  // ---- November 2025 ----
+  {
+    src: "photos/20251116_115135.jpg",
+    caption: "November 2025" // UPDATE: describe what this photo is
+  },
+  {
+    src: "photos/20251116_123613.jpg",
+    caption: "November 2025" // UPDATE: describe what this photo is
+  },
+
+  // ---- December 2025 ----
+  {
+    src: "photos/20251201_163435.jpg",
+    caption: "December 2025" // UPDATE: describe what this photo is
+  },
+  {
+    src: "photos/20251216_132047.jpg",
+    caption: "December 2025" // UPDATE: describe what this photo is
+  },
+
+  // ---- April 2026 ----
+  {
+    src: "photos/signal-2026-04-16-224502.jpeg",
+    caption: "April 2026" // UPDATE: describe what this photo is
+  },
+  {
+    src: "photos/signal-2026-04-16-224502_002.jpeg",
+    caption: "April 2026" // UPDATE: describe what this photo is
+  },
+  {
+    src: "photos/signal-2026-04-16-224502_003.jpeg",
+    caption: "April 2026" // UPDATE: describe what this photo is
+  },
+  {
+    src: "photos/signal-2026-04-16-224502_004.jpeg",
+    caption: "April 2026" // UPDATE: describe what this photo is
+  },
 
 ];
 
