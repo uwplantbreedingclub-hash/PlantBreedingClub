@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaborators — UW Plant Breeding Club</title>
+  <meta name="description" content="Meet the breeders, researchers, and contributors who donate their time, expertise, and breeding material to the UW Plant Breeding Club." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ---- Collaborator card ---- */
+    .collab-list {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .collab-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .collab-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .collab-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--cream-dk);
+      flex-shrink: 0;
+    }
+
+    .collab-photo-placeholder {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--cream-dk);
+      border: 4px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .collab-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+
+    .collab-title {
+      font-style: italic;
+      color: var(--green);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .collab-bio {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .collab-contribution {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(43, 83, 40, 0.08);
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+
+    .collab-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .collab-link {
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .collab-link:hover { color: var(--green-lt); }
+
+    @media (max-width: 600px) {
+      .collab-card {
+        grid-template-columns: 1fr;
+      }
+      .collab-photo,
+      .collab-photo-placeholder {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="leaf">🌱</span> Plant Breeding Club
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="collaborators.html">Collaborators</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== PAGE HEADER ===================== -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="tag">// It takes a village</p>
+      <h1>Collaborators</h1>
+      <p>
+        The breeders, researchers, and contributors who generously share their time,
+        expertise, and breeding materials with the PBC.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===================== COLLABORATORS ===================== -->
+  <section>
+    <div class="section-inner">
+
+      <p class="tag">// Who we work with</p>
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Our Contributors</h2>
+      <p class="section-intro">
+        None of what we do would be possible without the generosity of the people below.
+        We are deeply grateful for their support of the next generation of plant breeders.
+      </p>
+
+      <div class="collab-list">
+
+        <!-- ===================== KEN KMIECIK ===================== -->
+        <div class="collab-card">
+          <div>
+            <div class="collab-name">Ken Kmiecik</div>
+            <div class="collab-title">Independent Bean Breeder</div>
+            <p class="collab-bio">
+              Ken earned his B.S. in Horticulture from the University of Wisconsin–Madison in 1978
+              and has devoted his career to bean breeding and research. After nearly two decades at
+              UW–Madison studying edible dry and green beans, he joined Seminis Vegetable Seeds,
+              where he led the Garden Bean Breeding Program across multiple continents and released
+              over 30 commercial varieties with improved disease resistance. Since 2015, Ken has
+              worked as an independent consultant and plant breeder, focusing on root rot and white
+              mold resistance, genetic marker development, and innovative production methods.
+            </p>
+            <span class="collab-contribution">🫘 Bean Breeding Material & Expertise</span>
+            <!--UPDATE: add a website or contact link for Ken if available -->
+            <!--
+            <div class="collab-links">
+              <a href="#" target="_blank" rel="noopener" class="collab-link">🌐 Website →</a>
+            </div>
+            -->
+          </div>
+          <!--UPDATE: upload Ken's photo to the photos/ folder and replace the filename below -->
+          <!--
+          <img src="photos/ken-kmiecik.jpg" alt="Ken Kmiecik" class="collab-photo" />
+          -->
+          <div class="collab-photo-placeholder">🌱</div>
+        </div>
+
+        <!-- ===================== MALACHI PERSCHE ===================== -->
+        <div class="collab-card">
+          <div>
+            <div class="collab-name">Malachi Persche</div>
+            <div class="collab-title">Tree Crop Research Specialist — Savanna Institute</div>
+            <p class="collab-bio">
+              Malachi is from the Driftless Area of Wisconsin, where he grew up on various rural
+              and urban farms. With a background in soil science and ecology, he does field and
+              laboratory work for the Savanna Institute's Tree Crop Improvement Program, supporting
+              the development of perennial and agroforestry crop systems.
+            </p>
+            <span class="collab-contribution">🌳 Planting Space & Tree Crop Expertise</span>
+            <div class="collab-links">
+              <a href="https://www.savannainstitute.org" target="_blank" rel="noopener" class="collab-link">🌐 Savanna Institute →</a>
+              <a href="mailto:malachi@savannainstitute.org" class="collab-link">✉️ malachi@savannainstitute.org</a>
+            </div>
+          </div>
+          <!--UPDATE: upload Malachi's photo to photos/ folder and swap filename below -->
+          <!--
+          <img src="photos/malachi-persche.jpg" alt="Malachi Persche" class="collab-photo" />
+          -->
+          <div class="collab-photo-placeholder">🌳</div>
+        </div>
+
+        <!-- ===================== SHELBY ELLISON ===================== -->
+        <div class="collab-card">
+          <div>
+            <div class="collab-name">Dr. Shelby Ellison</div>
+            <div class="collab-title">Assistant Professor — UW–Madison, Plant & Agroecosystem Sciences</div>
+            <p class="collab-bio">
+              Shelby Ellison is an Assistant Professor in the Department of Plant and Agroecosystem
+              Sciences at UW–Madison and a member of the graduate programs in Plant Breeding and Plant
+              Genetics, Agroecology, and Horticulture. Her research focuses on preserving, characterizing,
+              and utilizing genetic diversity in alternative crops to meet the needs of Wisconsin farmers.
+              She is also interested in how human interactions with plants — through domestication and
+              breeding — have altered the plant genome, and how selection signatures can trace crop
+              improvement throughout history. Dr. Ellison is currently working with a multidisciplinary
+              team of scientists and extension educators on best production practices and cultivars for
+              Wisconsin hemp producers, and teaches courses in The Science of Hemp and Introduction to Horticulture.
+            </p>
+            <span class="collab-contribution">🎓 Faculty Advisor</span>
+            <div class="collab-links">
+              <a href="mailto:slrepinski@wisc.edu" class="collab-link">✉️ slrepinski@wisc.edu</a>
+            </div>
+          </div>
+          <!--UPDATE: upload Shelby's photo to photos/ folder and swap filename below -->
+          <!--
+          <img src="photos/shelby-ellison.jpg" alt="Dr. Shelby Ellison" class="collab-photo" />
+          -->
+          <div class="collab-photo-placeholder">🌿</div>
+        </div>
+
+        <!-- ===================== IRWIN GOLDMAN ===================== -->
+        <div class="collab-card">
+          <div>
+            <div class="collab-name">Dr. Irwin Goldman</div>
+            <div class="collab-title">Professor — UW–Madison, Department of Horticulture</div>
+            <p class="collab-bio">
+              Irwin Goldman has been a faculty member at UW–Madison since 1992 and is a Professor
+              in the Department of Horticulture. He runs breeding programs on carrot, onion, and
+              table beet — crops the UW program has been breeding for over 75 years. Inbred lines,
+              populations, and cultivars from his program are in use by farmers and plant breeders
+              on six continents. His research focuses on vegetable crop genetics, health-related
+              traits, and germplasm improvement, and he is a founding organizer of the Open Source
+              Seed Initiative. Irwin teaches courses in plant breeding, vegetable crops, food and
+              seed sovereignty, and evolutionary biology.
+            </p>
+            <span class="collab-contribution">🎓 Faculty Advisor</span>
+            <div class="collab-links">
+              <a href="https://goldman.horticulture.wisc.edu" target="_blank" rel="noopener" class="collab-link">🌐 Goldman Lab →</a>
+              <a href="mailto:ilgoldma@wisc.edu" class="collab-link">✉️ ilgoldma@wisc.edu</a>
+            </div>
+          </div>
+          <!--UPDATE: upload Irwin's photo to photos/ folder and swap filename below -->
+          <!--
+          <img src="photos/irwin-goldman.jpg" alt="Dr. Irwin Goldman" class="collab-photo" />
+          -->
+          <div class="collab-photo-placeholder">🥕</div>
+        </div>
+
+        <!-- ===================== JULIE DAWSON ===================== -->
+        <div class="collab-card">
+          <div>
+            <div class="collab-name">Dr. Julie Dawson</div>
+            <div class="collab-title">Associate Professor — UW–Madison, Plant & Agroecosystem Sciences</div>
+            <p class="collab-bio">
+              Julie Dawson is an Associate Professor in the Department of Plant and Agroecosystem
+              Sciences at UW–Madison, specializing in plant breeding for organic agriculture,
+              participatory plant breeding, and on-farm conservation of genetic resources. She leads
+              the Seed to Kitchen Collaborative, which partners with farmers and chefs to develop
+              vegetable varieties suited to organic and diversified agricultural systems. Her research
+              spans hazelnut genetics, variety trialing, and breeding methods that center farmer
+              participation and agroecological adaptation. In addition to providing planting space for
+              PBC projects, Dr. Dawson teaches Principles of Plant Breeding and Organic Vegetable Production.
+            </p>
+            <span class="collab-contribution">🌱 Planting Space & Faculty Support</span>
+            <div class="collab-links">
+              <a href="https://dawson.horticulture.wisc.edu" target="_blank" rel="noopener" class="collab-link">🌐 Dawson Lab →</a>
+              <a href="mailto:dawson@hort.wisc.edu" class="collab-link">✉️ dawson@hort.wisc.edu</a>
+            </div>
+          </div>
+          <!--UPDATE: upload Julie's photo to photos/ folder and swap filename below -->
+          <!--
+          <img src="photos/julie-dawson.jpg" alt="Dr. Julie Dawson" class="collab-photo" />
+          -->
+          <div class="collab-photo-placeholder">🌾</div>
+        </div>
+
+      </div>
+
+      <!-- Note about expanding -->
+      <div style="margin-top: 2.5rem; background: rgba(43,83,40,0.06); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin: 0;">
+          💡 <strong>To add a collaborator:</strong> Upload their photo to the <code>photos/</code> folder, then copy one of the collaborator card blocks in <code>collaborators.html</code> and fill in their details.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-band">
+    <div class="section-inner">
+      <p class="tag" style="color: var(--lime);">// Want to work with us?</p>
+      <h2 class="section-title">Interested in collaborating?</h2>
+      <p>We're always looking for breeders, researchers, and organizations to partner with. Reach out!</p>
+      <a href="mailto:uwplantbreedingclub@gmail.com" class="btn btn-lime">Get in Touch →</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌱 UW Plant Breeding Club</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="collaborators.html">Collaborators</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="join.html">Join</a></li>
+        <!--UPDATE: replace with your actual Instagram URL -->
+        <li><a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@gmail.com">uwplantbreedingclub@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
