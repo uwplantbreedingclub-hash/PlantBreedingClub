@@ -26,24 +26,47 @@
   Also lists the 3 most recent files in the "Meeting Notes"
   subfolder (see NOTES_SUBFOLDER_NAME in site-config.js — same
   folder events-calendar.js uses for the "📝 Meeting Notes →"
-  links on past events). "Most recent" is ALWAYS by the date found
-  in the filename itself (see driveExtractDateFromFilename in
-  drive-utils.js — handles both a "2026-09-16 ..." prefix and a
-  "Copy of Meeting 23 09-08-2026" style US date anywhere in the
-  name) — deliberately not by Drive's "last modified" time, since
-  that changes just from opening/viewing a file in some cases,
-  which would silently reshuffle this list. A file with no
-  parseable date in its name sorts to the bottom (it still shows
-  up if there's room among the top 3, just never displaces a
-  properly-dated file).
+  links on past events). Files are named like
+  "Copy of Meeting 23 09-08-2026" — "Most recent" ranks by the
+  MEETING NUMBER in the filename (23, 22, 21, ...), not by any
+  date. Two reasons: (1) the number is unambiguous and increases
+  every meeting, so there's nothing to mis-parse, and (2) an
+  earlier date-based version broke in practice — dates typed
+  without zero-padding (e.g. "9-8-2026") silently failed to match
+  and fell out of the ranking. Files with no "Meeting ##" in the
+  name fall back to a same-name-anywhere date, then to Drive's
+  last-modified time, and rank below every numbered file.
   ============================================================
 */
 
 const RECENT_NOTES_MAX = 3;
 
-function fileDateForSort(file) {
+// Matches "Meeting 23", "Meeting23", "Meeting #23" (case-insensitive) —
+// as many digits as follow "Meeting", so this doesn't care about padding.
+function meetingNumberFromFilename(name) {
+  const match = name.match(/Meeting\s*#?\s*(\d+)/i);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+// Returns a {tier, key} rank — lower tier always beats higher tier,
+// regardless of key. Tier 0 (has a meeting number) ranks above tier 1
+// (has a filename date but no meeting number), which ranks above tier 2
+// (neither — falls back to Drive's last-modified time).
+function noteSortRank(file) {
+  const num = meetingNumberFromFilename(file.name);
+  if (num !== null) return { tier: 0, key: num };
+
   const date = driveExtractDateFromFilename(file.name);
-  return date ? new Date(date + "T12:00:00Z").getTime() : -Infinity;
+  if (date) return { tier: 1, key: new Date(date + "T12:00:00Z").getTime() };
+
+  return { tier: 2, key: new Date(file.modifiedTime).getTime() };
+}
+
+function compareNotesNewestFirst(a, b) {
+  const ra = noteSortRank(a);
+  const rb = noteSortRank(b);
+  if (ra.tier !== rb.tier) return ra.tier - rb.tier;
+  return rb.key - ra.key || a.name.localeCompare(b.name);
 }
 
 function prettifyDriveFilename(name) {
@@ -142,7 +165,7 @@ async function loadRecentNotes() {
     const files = await driveListNamedSubfolder(NOTES_SUBFOLDER_NAME);
     notes = files
       .filter(f => driveResolvedMimeType(f) !== "application/vnd.google-apps.folder")
-      .sort((a, b) => fileDateForSort(b) - fileDateForSort(a) || a.name.localeCompare(b.name))
+      .sort(compareNotesNewestFirst)
       .slice(0, RECENT_NOTES_MAX);
   } catch (err) {
     console.error("Failed to load meeting notes from Drive:", err);
