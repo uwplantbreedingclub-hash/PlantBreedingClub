@@ -41,6 +41,6 @@ const DISPLAY_TZ = "America/Chicago";
 const PUBLIC_DRIVE_FOLDER_ID = "1to2hP-6UbrEAxKyTKkk2pVpu56-C02eO";
 const PHOTOS_SUBFOLDER_NAME = "Photos";
 const POSTERS_SUBFOLDER_NAME = "Posters";
-const NOTES_SUBFOLDER_NAME = "Notes";
+const NOTES_SUBFOLDER_NAME = "Meeting Notes";
 const DOCUMENTS_SUBFOLDER_NAME = "Documents"; // constitution, bylaws, etc. — listed on resources.html
 
