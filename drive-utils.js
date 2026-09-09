@@ -153,15 +153,16 @@ function driveOpenLink(file) {
 // checked in this order:
 //   1. A "YYYY-MM-DD" date at the very start of the filename, e.g.
 //      "2026-09-16 Biweekly Meeting poster.png".
-//   2. A "MM-DD-YYYY" date anywhere in the filename (US order), e.g.
-//      "Copy of Meeting 23 09-08-2026.pdf".
+//   2. A "M-D-YYYY" or "MM-DD-YYYY" date anywhere in the filename (US
+//      order, month/day not required to be zero-padded), e.g. both
+//      "Copy of Meeting 23 09-08-2026.pdf" and "...9-8-2026.pdf" match.
 // Returns an ISO "YYYY-MM-DD" string, or null if neither pattern is found.
 function driveExtractDateFromFilename(name) {
   const isoPrefix = name.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (isoPrefix) return `${isoPrefix[1]}-${isoPrefix[2]}-${isoPrefix[3]}`;
 
-  const usDate = name.match(/(\d{2})-(\d{2})-(\d{4})/);
-  if (usDate) return `${usDate[3]}-${usDate[1]}-${usDate[2]}`;
+  const usDate = name.match(/(\d{1,2})-(\d{1,2})-(\d{4})/);
+  if (usDate) return `${usDate[3]}-${usDate[1].padStart(2, "0")}-${usDate[2].padStart(2, "0")}`;
 
   return null;
 }
