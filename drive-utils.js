@@ -149,20 +149,33 @@ function driveOpenLink(file) {
   return (GOOGLE_APP_VIEWERS[mimeType] || driveViewLink)(id);
 }
 
-// Matches files whose name STARTS WITH a "YYYY-MM-DD" date, indexed by that
-// date string, so a page can ask "was anything uploaded for this event's
-// date?" Naming convention: put the event's date at the very start of the
-// filename, e.g. "2026-09-16 Biweekly Meeting poster.png" or
-// "2026-08-05 Ethical Dilemmas notes.pdf".
-// If two events land on the same date, whichever matching file Drive
-// returns first wins — keep same-day filenames distinct if that matters.
+// Pulls an event date out of a Drive filename. Recognizes two conventions,
+// checked in this order:
+//   1. A "YYYY-MM-DD" date at the very start of the filename, e.g.
+//      "2026-09-16 Biweekly Meeting poster.png".
+//   2. A "MM-DD-YYYY" date anywhere in the filename (US order), e.g.
+//      "Copy of Meeting 23 09-08-2026.pdf".
+// Returns an ISO "YYYY-MM-DD" string, or null if neither pattern is found.
+function driveExtractDateFromFilename(name) {
+  const isoPrefix = name.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (isoPrefix) return `${isoPrefix[1]}-${isoPrefix[2]}-${isoPrefix[3]}`;
+
+  const usDate = name.match(/(\d{2})-(\d{2})-(\d{4})/);
+  if (usDate) return `${usDate[3]}-${usDate[1]}-${usDate[2]}`;
+
+  return null;
+}
+
+// Indexes files by the date pulled from their filename (see
+// driveExtractDateFromFilename above), so a page can ask "was anything
+// uploaded for this event's date?" If two events land on the same date,
+// whichever matching file Drive returns first wins — keep same-day
+// filenames distinct if that matters.
 function driveIndexByDatePrefix(files) {
   const index = {};
-  const DATE_PREFIX = /^(\d{4}-\d{2}-\d{2})/;
   files.forEach(file => {
-    const match = file.name.match(DATE_PREFIX);
-    if (!match) return;
-    const date = match[1];
+    const date = driveExtractDateFromFilename(file.name);
+    if (!date) return;
     if (!index[date]) index[date] = file;
   });
   return index;
