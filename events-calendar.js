@@ -161,7 +161,7 @@ function buildUpcomingCard(item, postersIndex) {
     </div>
     <div class="event-actions">
       <a href="${item.htmlLink}" target="_blank" rel="noopener" class="btn btn-green" style="white-space: nowrap;">View in Calendar →</a>
-      ${poster ? `<a href="${driveViewLink(driveResolvedId(poster))}" target="_blank" rel="noopener" class="btn btn-green" style="white-space: nowrap;">View Poster →</a>` : ""}
+      ${poster ? `<a href="${driveOpenLink(poster)}" target="_blank" rel="noopener" class="btn btn-green" style="white-space: nowrap;">View Poster →</a>` : ""}
     </div>
   `;
   card.querySelector("h3").textContent = item.summary || "Untitled Event";
@@ -182,7 +182,7 @@ function buildPastCard(item, notesIndex) {
     <h3></h3>
     <p></p>
     <div class="card-meta"><span></span></div>
-    ${notes ? `<a href="${driveViewLink(driveResolvedId(notes))}" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.75rem; font-family:var(--font-mono); font-size:0.8rem; font-weight:600;">📝 Meeting Notes →</a>` : ""}
+    ${notes ? `<a href="${driveOpenLink(notes)}" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.75rem; font-family:var(--font-mono); font-size:0.8rem; font-weight:600;">📝 Meeting Notes →</a>` : ""}
   `;
   card.querySelector(".card-badge").textContent = badge;
   card.querySelector("h3").textContent = item.summary || "Untitled Event";
@@ -216,7 +216,7 @@ async function fetchCalendarEvents() {
   });
   const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?${params}`;
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Calendar API returned ${res.status}`);
+  if (!res.ok) throw new Error(`Calendar API error: ${await googleApiErrorMessage(res)}`);
   const data = await res.json();
   return data.items || [];
 }
