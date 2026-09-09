@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — UW Plant Breeding Club</title>
+  <meta name="description" content="Photos from UW Plant Breeding Club events, field trips, and lab life." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .photo-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--cream-dk);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .photo-item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow);
+      z-index: 1;
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: white;
+      padding: 1.5rem 1rem 0.75rem;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+
+    .instagram-strip {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: white;
+      margin-top: 3rem;
+    }
+    .instagram-strip h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .instagram-strip p { opacity: 0.85; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .btn-instagram {
+      background: white;
+      color: #833ab4;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .btn-instagram:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-decoration: none;
+      color: #833ab4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="leaf">🌱</span> Plant Breeding Club
+    </a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="collaborators.html">Collaborators</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== PAGE HEADER ===================== -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="tag">// Life in the lab & field</p>
+      <h1>Gallery</h1>
+      <p>Photos from events, skill-shares, farm tours, and lab life.</p>
+    </div>
+  </div>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section>
+    <div class="section-inner">
+
+      <p class="tag">// Our photos</p>
+      <h2 class="section-title" style="margin-bottom: 0.5rem;">Photos</h2>
+      <p class="section-intro">Scroll through what we've been up to.</p>
+
+      <!-- Grid populated automatically from Google Drive by gallery-drive.js -->
+      <div class="photo-grid" id="photo-grid"></div>
+
+      <!-- Shows when the Drive "Photos" folder is empty or unreachable -->
+      <div id="photo-empty" style="display:none; text-align:center; padding:4rem 2rem; background:white; border:1px solid var(--border); border-radius:var(--radius);">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">📷</div>
+        <p style="color:var(--muted); font-family:var(--font-mono); font-size:0.85rem;">
+          Photos coming soon — check back after our first events!
+        </p>
+      </div>
+
+      <!-- How to add photos tip -->
+      <div style="margin-top:1.5rem; background:rgba(43,83,40,0.06); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem 1.5rem;">
+        <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--muted); margin:0;">
+          📁 <strong>To add photos:</strong> Drop the image into the "Photos" subfolder inside "Publicly Viewable" on Google Drive. The gallery updates automatically — no GitHub commit needed.
+        </p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="instagram-strip">
+        <h3>Follow us on Instagram</h3>
+        <p>More photos, event updates, and plant content on our Instagram.</p>
+        <!--UPDATE: replace with your actual Instagram handle/URL -->
+        <a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener" class="btn-instagram">
+          <span>📷</span> @uwplantbreedingclub
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌱 UW Plant Breeding Club</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="collaborators.html">Collaborators</a></li>
+        <li><a href="join.html">Join</a></li>
+        <!--UPDATE: replace with your actual Instagram URL -->
+        <li><a href="https://instagram.com/uwplantbreedingclub" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <p>© 2026 UW Plant Breeding Club · University of Wisconsin–Madison · <a href="mailto:uwplantbreedingclub@gmail.com">uwplantbreedingclub@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <!-- site-config.js + drive-utils.js must load before gallery-drive.js -->
+  <script src="site-config.js"></script>
+  <script src="drive-utils.js"></script>
+  <script src="gallery-drive.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

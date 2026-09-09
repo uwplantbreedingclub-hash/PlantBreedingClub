@@ -554,6 +554,14 @@ section { padding: 5rem 2.5rem; }
   color: var(--green);
 }
 
+/* Holds the "View in Calendar" button and, when a matching poster was
+   found in Drive, a second "View Poster" button stacked beneath it. */
+.event-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 /* ============================================================
    RESOURCES PAGE
    ============================================================ */
@@ -689,6 +697,7 @@ hr {
     grid-template-rows: auto auto;
   }
   .event-card .btn { grid-column: 2; }
+  .event-card .event-actions { grid-column: 2; }
 
   .resource-item { flex-wrap: wrap; }
   .resource-arrow { display: none; }
