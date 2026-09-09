@@ -34,11 +34,13 @@ const GOOGLE_API_KEY = "AIzaSyAwIrsyPiRb2vzNx2qsC7mM7xmbn6jg6xQ";
 const CALENDAR_ID = "uwplantbreedingclub@gmail.com";
 const DISPLAY_TZ = "America/Chicago";
 
-// "Publicly Viewable" Drive folder — contains the Photos / Posters / Notes
-// subfolders. Only put things here you're fine with anyone on the internet
-// seeing; the subfolder names below are matched by name, case-sensitive.
+// "Publicly Viewable" Drive folder — contains the Photos / Posters / Notes /
+// Documents subfolders. Only put things here you're fine with anyone on the
+// internet seeing; the subfolder names below are matched by name,
+// case-sensitive.
 const PUBLIC_DRIVE_FOLDER_ID = "1to2hP-6UbrEAxKyTKkk2pVpu56-C02eO";
 const PHOTOS_SUBFOLDER_NAME = "Photos";
 const POSTERS_SUBFOLDER_NAME = "Posters";
-const NOTES_SUBFOLDER_NAME = "Meeting Notes";
-const CONSTITUTION_SUBFOLDER_NAME = "Constitution";
+const NOTES_SUBFOLDER_NAME = "Notes";
+const DOCUMENTS_SUBFOLDER_NAME = "Documents"; // constitution, bylaws, etc. — listed on resources.html
+
