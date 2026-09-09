@@ -3,6 +3,8 @@
   PLANT BREEDING CLUB — PHOTO GALLERY LIST
   ============================================================
 
+NO LONGER FUNCTIONAL IN CODE. ARCHIVAL
+
   HOW TO ADD A PHOTO:
   1. Upload your image to the "photos/" folder in GitHub
   2. Copy one of the entries below and add it to the array
