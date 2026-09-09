@@ -10,6 +10,10 @@
   automatically — the day after an event's start time passes, it
   moves itself from "Upcoming Events" into "Past Events".
 
+  It also drives the small "Upcoming Events" strip on index.html
+  (the 3 soonest events, teaser-only — no poster/notes links) if
+  a #home-events-grid element is present on the page.
+
   It also checks the "Posters" and "Notes" subfolders (inside the
   "Publicly Viewable" Drive folder — see site-config.js) for a file
   whose name starts with an event's date, and if one exists:
@@ -35,8 +39,9 @@
 */
 
 const PAST_LOOKBACK_DAYS = 365;   // how far back to pull past events from
-const UPCOMING_EVENTS_MAX = 8;    // cards to show in "Upcoming Events"
-const PAST_EVENTS_MAX = 6;        // cards to show in "Past Events"
+const UPCOMING_EVENTS_MAX = 8;    // cards to show in "Upcoming Events" (events.html)
+const PAST_EVENTS_MAX = 6;        // cards to show in "Past Events" (events.html)
+const HOME_EVENTS_MAX = 3;        // cards to show in the "Upcoming Events" strip on index.html
 
 const BADGE_RULES = [
   [/journal club/i, "Journal Club"],
@@ -191,6 +196,31 @@ function buildPastCard(item, notesIndex) {
   return card;
 }
 
+// Same shape as index.html's original hand-written cards — no poster/notes
+// links here, just a quick teaser for the 3 soonest upcoming events.
+function buildHomeCard(item) {
+  const parts = eventParts(item);
+  const badge = badgeFor(item.summary || "");
+  const description = truncate(stripHtml(item.description), 140);
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <span class="card-badge"></span>
+    <h3></h3>
+    <p></p>
+    <div class="card-meta">
+      <span></span>
+      ${item.location ? `<span class="dot">·</span><span>📍 ${item.location}</span>` : ""}
+    </div>
+  `;
+  card.querySelector(".card-badge").textContent = badge;
+  card.querySelector("h3").textContent = item.summary || "Untitled Event";
+  card.querySelector("p").textContent = description;
+  card.querySelector(".card-meta span").textContent = `📅 ${parts.monthLong} ${parts.day}, ${parts.year}`;
+  return card;
+}
+
 function renderEmpty(container, message) {
   const p = document.createElement("p");
   p.style.fontFamily = "var(--font-mono)";
@@ -224,12 +254,14 @@ async function fetchCalendarEvents() {
 async function loadEvents() {
   const upcomingContainer = document.getElementById("events-list");
   const pastContainer = document.getElementById("past-events-grid");
-  if (!upcomingContainer && !pastContainer) return;
+  const homeContainer = document.getElementById("home-events-grid");
+  if (!upcomingContainer && !pastContainer && !homeContainer) return;
 
   if (GOOGLE_API_KEY === "YOUR_API_KEY_HERE") {
     const msg = "Live event syncing isn't set up yet — see the setup steps at the top of site-config.js. In the meantime, check the calendar below.";
     if (upcomingContainer) { upcomingContainer.innerHTML = ""; renderEmpty(upcomingContainer, msg); }
     if (pastContainer) { pastContainer.innerHTML = ""; renderEmpty(pastContainer, msg); }
+    if (homeContainer) { homeContainer.innerHTML = ""; renderEmpty(homeContainer, msg); }
     return;
   }
 
@@ -271,11 +303,21 @@ async function loadEvents() {
         past.forEach(item => pastContainer.appendChild(buildPastCard(item, notesIndex)));
       }
     }
+
+    if (homeContainer) {
+      homeContainer.innerHTML = "";
+      if (upcoming.length === 0) {
+        renderEmpty(homeContainer, "Nothing on the calendar yet — check back soon!");
+      } else {
+        upcoming.slice(0, HOME_EVENTS_MAX).forEach(item => homeContainer.appendChild(buildHomeCard(item)));
+      }
+    }
   } catch (err) {
     console.error("Failed to load events:", err);
     const msg = "Couldn't load events right now. In the meantime, check the calendar below.";
     if (upcomingContainer) { upcomingContainer.innerHTML = ""; renderEmpty(upcomingContainer, msg); }
     if (pastContainer) { pastContainer.innerHTML = ""; renderEmpty(pastContainer, msg); }
+    if (homeContainer) { homeContainer.innerHTML = ""; renderEmpty(homeContainer, msg); }
   }
 }
 
