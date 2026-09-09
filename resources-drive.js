@@ -26,12 +26,16 @@
   Also lists the 3 most recent files in the "Meeting Notes"
   subfolder (see NOTES_SUBFOLDER_NAME in site-config.js — same
   folder events-calendar.js uses for the "📝 Meeting Notes →"
-  links on past events). "Most recent" is by the event date found
-  in the filename (see driveExtractDateFromFilename in
+  links on past events). "Most recent" is ALWAYS by the date found
+  in the filename itself (see driveExtractDateFromFilename in
   drive-utils.js — handles both a "2026-09-16 ..." prefix and a
   "Copy of Meeting 23 09-08-2026" style US date anywhere in the
-  name) when present, falling back to when the file was last
-  modified in Drive.
+  name) — deliberately not by Drive's "last modified" time, since
+  that changes just from opening/viewing a file in some cases,
+  which would silently reshuffle this list. A file with no
+  parseable date in its name sorts to the bottom (it still shows
+  up if there's room among the top 3, just never displaces a
+  properly-dated file).
   ============================================================
 */
 
@@ -39,8 +43,7 @@ const RECENT_NOTES_MAX = 3;
 
 function fileDateForSort(file) {
   const date = driveExtractDateFromFilename(file.name);
-  if (date) return new Date(date + "T12:00:00Z").getTime();
-  return new Date(file.modifiedTime).getTime();
+  return date ? new Date(date + "T12:00:00Z").getTime() : -Infinity;
 }
 
 function prettifyDriveFilename(name) {
@@ -139,7 +142,7 @@ async function loadRecentNotes() {
     const files = await driveListNamedSubfolder(NOTES_SUBFOLDER_NAME);
     notes = files
       .filter(f => driveResolvedMimeType(f) !== "application/vnd.google-apps.folder")
-      .sort((a, b) => fileDateForSort(b) - fileDateForSort(a))
+      .sort((a, b) => fileDateForSort(b) - fileDateForSort(a) || a.name.localeCompare(b.name))
       .slice(0, RECENT_NOTES_MAX);
   } catch (err) {
     console.error("Failed to load meeting notes from Drive:", err);
