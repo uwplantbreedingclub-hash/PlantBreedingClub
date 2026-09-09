@@ -26,18 +26,20 @@
   Also lists the 3 most recent files in the "Meeting Notes"
   subfolder (see NOTES_SUBFOLDER_NAME in site-config.js — same
   folder events-calendar.js uses for the "📝 Meeting Notes →"
-  links on past events). "Most recent" is by the event date
-  prefix in the filename (e.g. "2026-09-16 ...") when present,
-  falling back to when the file was last modified in Drive.
+  links on past events). "Most recent" is by the event date found
+  in the filename (see driveExtractDateFromFilename in
+  drive-utils.js — handles both a "2026-09-16 ..." prefix and a
+  "Copy of Meeting 23 09-08-2026" style US date anywhere in the
+  name) when present, falling back to when the file was last
+  modified in Drive.
   ============================================================
 */
 
 const RECENT_NOTES_MAX = 3;
-const DATE_PREFIX = /^(\d{4}-\d{2}-\d{2})/;
 
 function fileDateForSort(file) {
-  const match = file.name.match(DATE_PREFIX);
-  if (match) return new Date(match[1] + "T12:00:00Z").getTime();
+  const date = driveExtractDateFromFilename(file.name);
+  if (date) return new Date(date + "T12:00:00Z").getTime();
   return new Date(file.modifiedTime).getTime();
 }
 
@@ -153,14 +155,14 @@ async function loadRecentNotes() {
     return;
   }
 
-  // Blurb here is always "the meeting date" (parsed from the filename
-  // prefix) rather than a Drive description, since that's what's useful
-  // to know at a glance for a notes list.
+  // Blurb here is always "the meeting date" (parsed from the filename —
+  // see driveExtractDateFromFilename) rather than a Drive description,
+  // since that's what's useful to know at a glance for a notes list.
   renderResourceItems(list, notes, file => {
-    const match = file.name.match(DATE_PREFIX);
-    if (!match) return formatUpdatedDate(file.modifiedTime);
+    const date = driveExtractDateFromFilename(file.name);
+    if (!date) return formatUpdatedDate(file.modifiedTime);
     return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })
-      .format(new Date(match[1] + "T12:00:00Z"));
+      .format(new Date(date + "T12:00:00Z"));
   });
 }
 
